@@ -10,10 +10,19 @@
 // Apply common settings specific to Mac OS X
 #include "Mac-Base.xcconfig"
 
-// Whether function calls should be position-dependent (should always be
-// disabled for library code)
-GCC_DYNAMIC_NO_PIC = YES
+//---------------------------------------------------------------------------//
+// ### LINKING ##############################################################
+//---------------------------------------------------------------------------//
 
 // Sets the @rpath for the application such that it can include frameworks in
 // the application bundle (inside the "Frameworks" folder)
 LD_RUNPATH_SEARCH_PATHS = @loader_path/../Frameworks
+
+//---------------------------------------------------------------------------//
+// ### CODE GENERATION ######################################################
+//---------------------------------------------------------------------------//
+
+// Whether function calls should be position-dependent (should always be
+// disabled for library code)
+GCC_DYNAMIC_NO_PIC = YES
+

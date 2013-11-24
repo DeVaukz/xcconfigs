@@ -4,9 +4,9 @@
 // a configuration file for a specific type of target.
 //
 
-// Whether to combine multiple image resolutions into a multirepresentational
-// TIFF
-COMBINE_HIDPI_IMAGES = YES
+//---------------------------------------------------------------------------//
+// ### ARCHITECTURES ########################################################
+//---------------------------------------------------------------------------//
 
 // The base SDK to use (if no version is specified, the latest version is
 // assumed)
@@ -17,3 +17,14 @@ SUPPORTED_PLATFORMS = macosx
 
 // Supported architectures
 VALID_ARCHS = i386 x86_64
+
+//---------------------------------------------------------------------------//
+// ### DEPLOYMENT ###########################################################
+//---------------------------------------------------------------------------//
+
+// Whether to combine multiple image resolutions into a multirepresentational
+// TIFF
+COMBINE_HIDPI_IMAGES = YES
+
+
+

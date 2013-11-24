@@ -7,12 +7,24 @@
 // Import common settings specific to Mac OS X
 #include "Mac-Base.xcconfig"
 
+//---------------------------------------------------------------------------//
+// ### DEPLOYMENT ###########################################################
+//---------------------------------------------------------------------------//
+
+// Don't include in an xcarchive
+SKIP_INSTALL = YES
+
+//---------------------------------------------------------------------------//
+// ### LINKING ##############################################################
+//---------------------------------------------------------------------------//
+
 // Whether to strip out code that isn't called from anywhere
 DEAD_CODE_STRIPPING = NO
+
+//---------------------------------------------------------------------------//
+// ### CODE GENERATION ######################################################
+//---------------------------------------------------------------------------//
 
 // Whether function calls should be position-dependent (should always be
 // disabled for library code)
 GCC_DYNAMIC_NO_PIC = NO
-
-// Don't include in an xcarchive
-SKIP_INSTALL = YES

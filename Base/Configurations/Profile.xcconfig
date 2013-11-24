@@ -9,19 +9,31 @@
 // symbols re-enabled
 #include "Release.xcconfig"
 
-// Whether to strip debugging symbols when copying resources (like included
-// binaries)
-COPY_PHASE_STRIP = NO
+//---------------------------------------------------------------------------//
+// ### ARCHITECTURES ########################################################
+//---------------------------------------------------------------------------//
 
 // Whether to only build the active architecture
 ONLY_ACTIVE_ARCH = YES
 
-// Whether to strip debugging symbols when copying the built product to its
-// final installation location
-STRIP_INSTALLED_PRODUCT = NO
-
 // Whether to perform App Store validation checks
 VALIDATE_PRODUCT = NO
 
+//---------------------------------------------------------------------------//
+// ### CODE SIGNING #########################################################
+//---------------------------------------------------------------------------//
+
 // Disable Developer ID timestamping
 OTHER_CODE_SIGN_FLAGS = --timestamp=none
+
+//---------------------------------------------------------------------------//
+// ### DEPLOYMENT ###########################################################
+//---------------------------------------------------------------------------//
+
+// Whether to strip debugging symbols when copying resources (like included
+// binaries)
+COPY_PHASE_STRIP = NO
+
+// Whether to strip debugging symbols when copying the built product to its
+// final installation location
+STRIP_INSTALLED_PRODUCT = NO
