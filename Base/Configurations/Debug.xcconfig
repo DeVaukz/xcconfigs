@@ -57,7 +57,7 @@ GCC_OPTIMIZATION_LEVEL = 0
 //
 // These settings catch some errors in integer arithmetic and some instances of
 // undefined behavior
-OTHER_CFLAGS = -ftrapv -fcatch-undefined-behavior
+OTHER_CFLAGS = -ftrapv
 
 //---------------------------------------------------------------------------//
 // ### PREPROCESSING ########################################################
