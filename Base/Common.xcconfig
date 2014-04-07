@@ -148,8 +148,8 @@ GCC_WARN_UNUSED_LABEL = YES
 // Whether to warn about variables that are never used
 GCC_WARN_UNUSED_VARIABLE = YES
 
-// Disable GCC compatibility warnings
-WARNING_CFLAGS = -Wno-gcc-compat
+// Don't treat unknown warnings as errors, and disable GCC compatibility warnings and unused static const variable warnings
+WARNING_CFLAGS = -Wno-error=unknown-warning-option -Wno-gcc-compat -Wno-unused-const-variable
 
 // Whether to warn about unused method/function parameters
 GCC_WARN_UNUSED_PARAMETER = YES
