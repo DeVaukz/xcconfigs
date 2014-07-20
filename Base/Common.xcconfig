@@ -5,6 +5,13 @@
 //
 
 //---------------------------------------------------------------------------//
+// ### ARCHITECTURES ########################################################
+//---------------------------------------------------------------------------//
+
+// Architectures to build
+ARCHS = $(ARCHS_STANDARD)
+
+//---------------------------------------------------------------------------//
 // ### BUILD OPTIONS ########################################################
 //---------------------------------------------------------------------------//
 
@@ -17,13 +24,6 @@ GCC_VERSION = com.apple.compilers.llvm.clang.1_0
 
 // Disable legacy-compatible header searching
 ALWAYS_SEARCH_USER_PATHS = NO
-
-//---------------------------------------------------------------------------//
-// ### UNIT TESTING #########################################################
-//---------------------------------------------------------------------------//
-
-// Whether to run unit tests with every build
-TEST_AFTER_BUILD = NO
 
 //---------------------------------------------------------------------------//
 // ### CODE GENERATION ######################################################
@@ -57,6 +57,9 @@ CLANG_CXX_LANGUAGE_STANDARD = gnu++0x
 // Which C++ Standard Library to use
 CLANG_CXX_LIBRARY = libc++
 
+// Whether to enable module imports
+CLANG_ENABLE_MODULES = YES
+
 // Whether to enable exceptions for Objective-C
 GCC_ENABLE_OBJC_EXCEPTIONS = YES
 
@@ -65,6 +68,16 @@ CLANG_ENABLE_OBJC_ARC = YES
 
 // Whether to precompile the prefix header (if one is specified)
 GCC_PRECOMPILE_PREFIX_HEADER = YES
+
+//---------------------------------------------------------------------------//
+// ### PREPROCESSING ########################################################
+//---------------------------------------------------------------------------//
+
+// Whether to compile assertions in
+ENABLE_NS_ASSERTIONS = YES
+
+// Whether to require objc_msgSend to be cast before invocation
+ENABLE_STRICT_OBJC_MSGSEND = YES
 
 //---------------------------------------------------------------------------//
 // ### WARNINGS (ALL) #######################################################
@@ -96,7 +109,7 @@ CLANG_WARN_INT_CONVERSION = YES
 CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES
 
 // Warn if a variable might be clobbered by a setjmp call or if an automatic variable is used without prior initialization.
-GCC_WARN_UNINITIALIZED_AUTOS = YES
+GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE
 
 // Whether to warn about 64-bit values being implicitly shortened to 32 bits
 GCC_WARN_64_TO_32_BIT_CONVERSION = YES
@@ -114,7 +127,7 @@ GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES
 
 // Whether to warn when the value returned from a function/method/block does not
 // match its return type
-GCC_WARN_ABOUT_RETURN_TYPE = YES
+GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR
 
 // Whether to warn when switching on an enum value, and all possibilities are
 // not accounted for
@@ -138,6 +151,9 @@ GCC_WARN_SIGN_COMPARE = YES
 // Whether to warn about the arguments to printf-style functions not matching
 // the format specifiers
 GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES
+
+// Warn about potentially unreachable code
+CLANG_WARN_UNREACHABLE_CODE = YES
 
 // Whether to warn about static functions that are unused
 GCC_WARN_UNUSED_FUNCTION = YES

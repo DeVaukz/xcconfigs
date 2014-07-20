@@ -66,6 +66,16 @@ OTHER_CFLAGS = -ftrapv
 // Preproccessor definitions to apply to each file compiled
 GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1
 
+//---------------------------------------------------------------------------//
+// ### SWIFT ################################################################
+//---------------------------------------------------------------------------//
+
+// The optimization level (-Onone, -O, -Ofast) for the produced Swift binary
+SWIFT_OPTIMIZATION_LEVEL = -Onone
+
+// This enables conditional compilation with #if DEBUG
+OTHER_SWIFT_FLAGS = -D DEBUG
+
 
 
 

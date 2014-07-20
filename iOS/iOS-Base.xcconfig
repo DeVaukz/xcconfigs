@@ -8,9 +8,6 @@
 // ### ARCHITECTURES ########################################################
 //---------------------------------------------------------------------------//
 
-// Architectures to build
-ARCHS = $(ARCHS_STANDARD_INCLUDING_64_BIT)
-
 // The base SDK to use (if no version is specified, the latest version is
 // assumed)
 SDKROOT = iphoneos
