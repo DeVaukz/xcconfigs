@@ -12,11 +12,15 @@
 // assumed)
 SDKROOT = macosx
 
-// Supported SDK platforms
-SUPPORTED_PLATFORMS = macosx
+// Supported build architectures
+VALID_ARCHS = x86_64
 
-// Supported architectures
-VALID_ARCHS = i386 x86_64
+//---------------------------------------------------------------------------//
+// ### LINKING ##############################################################
+//---------------------------------------------------------------------------//
+
+// Where to find embedded frameworks
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks
 
 //---------------------------------------------------------------------------//
 // ### DEPLOYMENT ###########################################################

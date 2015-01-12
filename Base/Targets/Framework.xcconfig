@@ -33,6 +33,10 @@ LD_DYLIB_INSTALL_NAME = @rpath/$(PRODUCT_NAME).$(WRAPPER_EXTENSION)/$(PRODUCT_NA
 // Whether this framework should define an LLVM module
 DEFINES_MODULE = YES
 
+// Default frameworks to the name of the project, instead of any
+// platform-specific target
+PRODUCT_NAME = $(PROJECT_NAME)
+
 //---------------------------------------------------------------------------//
 // ### CODE GENERATION ######################################################
 //---------------------------------------------------------------------------//
@@ -40,12 +44,3 @@ DEFINES_MODULE = YES
 // Whether function calls should be position-dependent (should always be
 // disabled for library code)
 GCC_DYNAMIC_NO_PIC = NO
-
-//---------------------------------------------------------------------------//
-// ### SEARCH PATHS #########################################################
-//---------------------------------------------------------------------------//
-
-// When compiling this library, look for imports (written with quotes) in the
-// library's own folder first. This avoids conflicts from other headers in the
-// build folder.
-USER_HEADER_SEARCH_PATHS = ./**

@@ -12,14 +12,12 @@
 // assumed)
 SDKROOT = iphoneos
 
-// Whether to only build the active architecture (overridden from Debug/Profile)
-ONLY_ACTIVE_ARCH = NO
+//---------------------------------------------------------------------------//
+// ### LINKING ##############################################################
+//---------------------------------------------------------------------------//
 
-// Supported SDK platforms
-SUPPORTED_PLATFORMS = iphonesimulator iphoneos
-
-// Supported architectures
-VALID_ARCHS = armv7 armv7s arm64 i386 x86_64
+// Where to find embedded frameworks
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 
 //---------------------------------------------------------------------------//
 // ### SEARCH PATHS #########################################################

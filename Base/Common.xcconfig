@@ -109,7 +109,7 @@ CLANG_WARN_INT_CONVERSION = YES
 CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES
 
 // Warn if a variable might be clobbered by a setjmp call or if an automatic variable is used without prior initialization.
-GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE
+GCC_WARN_UNINITIALIZED_AUTOS = YES
 
 // Whether to warn about 64-bit values being implicitly shortened to 32 bits
 GCC_WARN_64_TO_32_BIT_CONVERSION = YES
