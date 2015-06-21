@@ -12,15 +12,15 @@
 // Whether to only build the active architecture
 ONLY_ACTIVE_ARCH = NO
 
-// Whether to perform App Store validation checks
-VALIDATE_PRODUCT = YES
-
 //---------------------------------------------------------------------------//
 // ### BUILD OPTIONS ########################################################
 //---------------------------------------------------------------------------//
 
 // The format of debugging symbols
 DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+
+// Whether to perform App Store validation checks
+VALIDATE_PRODUCT = YES
 
 //---------------------------------------------------------------------------//
 // ### CODE SIGNING #########################################################

@@ -18,6 +18,10 @@ ARCHS = $(ARCHS_STANDARD)
 // Which compiler to use
 GCC_VERSION = com.apple.compilers.llvm.clang.1_0
 
+// Whether to check that the code complies with the requirements for bitcode
+// generation.
+ENABLE_BITCODE = YES
+
 //---------------------------------------------------------------------------//
 // ### SEARCH PATHS #########################################################
 //---------------------------------------------------------------------------//
@@ -36,6 +40,10 @@ GCC_STRICT_ALIASING = YES
 
 // Whether to generate debugging symbols
 GCC_GENERATE_DEBUGGING_SYMBOLS = YES
+
+// Whether to allocate even uninitialized global variables in the data section
+// of the object file, rather than generating them as common blocks.
+GCC_NO_COMMON_BLOCKS = YES
 
 // Whether static variables are thread-safe by default
 GCC_THREADSAFE_STATICS = NO
@@ -57,6 +65,9 @@ CLANG_CXX_LANGUAGE_STANDARD = gnu++0x
 // Which C++ Standard Library to use
 CLANG_CXX_LIBRARY = libc++
 
+// Whether to precompile the prefix header (if one is specified)
+GCC_PRECOMPILE_PREFIX_HEADER = YES
+
 // Whether to enable module imports
 CLANG_ENABLE_MODULES = YES
 
@@ -65,9 +76,6 @@ GCC_ENABLE_OBJC_EXCEPTIONS = YES
 
 // Enable ARC
 CLANG_ENABLE_OBJC_ARC = YES
-
-// Whether to precompile the prefix header (if one is specified)
-GCC_PRECOMPILE_PREFIX_HEADER = YES
 
 //---------------------------------------------------------------------------//
 // ### PREPROCESSING ########################################################
@@ -107,6 +115,10 @@ CLANG_WARN_INT_CONVERSION = YES
 
 // Whether to warn on suspicious implicit conversions
 CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES
+
+// Whether to warn about implicit integer conversions that change the signedness
+// of an integer value.
+CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES
 
 // Warn if a variable might be clobbered by a setjmp call or if an automatic variable is used without prior initialization.
 GCC_WARN_UNINITIALIZED_AUTOS = YES
@@ -177,24 +189,32 @@ GCC_WARN_UNUSED_PARAMETER = YES
 // Warn about direct accesses to the Objective-C 'isa' pointer instead of using a runtime API.
 CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES
 
-// Don't warn about repeatedly using a weak reference without assigning the weak reference to a strong reference. Too many false positives.
-CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO
-
-// Warn about classes that unintentionally do not subclass a root class (such as NSObject).
-CLANG_WARN_OBJC_ROOT_CLASS = YES
-
 // Warn about declaring the same method more than once within the same @interface.
 CLANG_WARN__DUPLICATE_METHOD_MATCH = YES
 
-// Whether to warn when overriding deprecated methods
-CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES
+// Whether to warn about @property declarations that are implicitly atomic.
+CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES
 
 // Whether to warn on a class not implementing all the required methods of
 // a protocol it declares conformance to
 GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES
 
+// Whether to warn when overriding deprecated methods
+CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES
+
 // Warn if a "@selector(...)" expression referring to an undeclared selector is found
 GCC_WARN_UNDECLARED_SELECTOR = YES
+
+// Warn about classes that unintentionally do not subclass a root class (such as NSObject).
+CLANG_WARN_OBJC_ROOT_CLASS = YES
+
+//---------------------------------------------------------------------------//
+// ### WARNINGS (ARC) #######################################################
+//---------------------------------------------------------------------------//
+
+// Don't warn about repeatedly using a weak reference without assigning the weak
+// reference to a strong reference. Too many false positives.
+CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO
 
 //---------------------------------------------------------------------------//
 // ### ANALYZER #############################################################
@@ -208,4 +228,3 @@ CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES
 
 // Whether to warn about strcpy() and strcat()
 CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES
-
