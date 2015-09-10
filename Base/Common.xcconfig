@@ -18,10 +18,6 @@ ARCHS = $(ARCHS_STANDARD)
 // Which compiler to use
 GCC_VERSION = com.apple.compilers.llvm.clang.1_0
 
-// Whether to check that the code complies with the requirements for bitcode
-// generation.
-ENABLE_BITCODE = YES
-
 //---------------------------------------------------------------------------//
 // ### SEARCH PATHS #########################################################
 //---------------------------------------------------------------------------//
@@ -191,9 +187,6 @@ CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES
 
 // Warn about declaring the same method more than once within the same @interface.
 CLANG_WARN__DUPLICATE_METHOD_MATCH = YES
-
-// Whether to warn about @property declarations that are implicitly atomic.
-CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES
 
 // Whether to warn on a class not implementing all the required methods of
 // a protocol it declares conformance to
