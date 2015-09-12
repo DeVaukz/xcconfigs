@@ -73,9 +73,6 @@ GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1
 // The optimization level (-Onone, -O, -Ofast) for the produced Swift binary
 SWIFT_OPTIMIZATION_LEVEL = -Onone
 
-// Whether to optimize across the whole Swift module
-SWIFT_WHOLE_MODULE_OPTIMIZATION = NO
-
 // This enables conditional compilation with #if DEBUG
 OTHER_SWIFT_FLAGS = -D DEBUG
 
