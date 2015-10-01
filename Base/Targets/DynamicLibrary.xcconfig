@@ -1,6 +1,6 @@
 //
 // This file defines additional configuration options that are appropriate only
-// for a static library. Typically, you want to use a platform-specific variant
+// for a dynamic library. Typically, you want to use a platform-specific variant
 // instead.
 //
 
@@ -17,17 +17,13 @@ APPLICATION_EXTENSION_API_ONLY = YES
 // ### DEPLOYMENT ###########################################################
 //---------------------------------------------------------------------------//
 
+// Enables the framework to be included from any location as long as the
+// loader’s runpath search paths includes it. For example from an application
+// bundle (inside the "Frameworks" folder) or shared folder
+INSTALL_PATH = @rpath
+
 // Don't include in an xcarchive
 SKIP_INSTALL = YES
-
-// Whether to strip debugging symbols when copying resources (like included
-// binaries).
-//
-// Overrides Release.xcconfig when used at the target level.
-COPY_PHASE_STRIP = NO
-
-// Supported device families (1 is iPhone, 2 is iPad)
-TARGETED_DEVICE_FAMILY = 1,2
 
 //---------------------------------------------------------------------------//
 // ### LINKING ##############################################################
@@ -36,6 +32,9 @@ TARGETED_DEVICE_FAMILY = 1,2
 // Whether to strip out code that isn't called from anywhere
 DEAD_CODE_STRIPPING = NO
 
+// The Internal install path.
+LD_DYLIB_INSTALL_NAME = @rpath/$(EXECUTABLE_PREFIX)$(PRODUCT_NAME).$(EXECUTABLE_EXTENSION)
+
 //---------------------------------------------------------------------------//
 // ### CODE GENERATION ######################################################
 //---------------------------------------------------------------------------//
@@ -43,12 +42,3 @@ DEAD_CODE_STRIPPING = NO
 // Whether function calls should be position-dependent (should always be
 // disabled for library code)
 GCC_DYNAMIC_NO_PIC = NO
-
-//---------------------------------------------------------------------------//
-// ### PACKAGING ############################################################
-//---------------------------------------------------------------------------//
-
-// Copy headers to "include/LibraryName" in the build folder by default. This
-// lets consumers use #import <LibraryName/LibraryName.h> syntax even for static
-// libraries
-PUBLIC_HEADERS_FOLDER_PATH = include/$PRODUCT_NAME

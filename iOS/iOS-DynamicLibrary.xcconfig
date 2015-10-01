@@ -7,5 +7,5 @@
 // Import base Dynamic Library settings
 #include "../Base/Targets/DynamicLibrary.xcconfig"
 
-// Import common settings specific to Mac OS X
-#include "Mac-Base.xcconfig"
+// Import common settings specific to iOS
+#include "iOS-Base.xcconfig"

@@ -10,6 +10,10 @@
 
 // Architectures to build
 ARCHS = $(ARCHS_STANDARD)
+ARCHS[sdk=iphoneos*] = arm64
+
+// Supported build architectures
+VALID_ARCHS[sdk=macosx*] = x86_64
 
 //---------------------------------------------------------------------------//
 // ### BUILD OPTIONS ########################################################
@@ -19,11 +23,40 @@ ARCHS = $(ARCHS_STANDARD)
 GCC_VERSION = com.apple.compilers.llvm.clang.1_0
 
 //---------------------------------------------------------------------------//
+// ### CODE SIGNING #########################################################
+//---------------------------------------------------------------------------//
+
+// Which certificate to code-sign with.
+CODE_SIGN_IDENTITY[sdk=macosx*] = Mac Developer
+CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer
+CODE_SIGN_IDENTITY[sdk=iphonesimulator*] = iPhone Developer
+
+//---------------------------------------------------------------------------//
+// ### DEPLOYMENT ###########################################################
+//---------------------------------------------------------------------------//
+
+// Whether to combine multiple image resolutions into a multirepresentational
+// TIFF
+COMBINE_HIDPI_IMAGES = YES
+
+//---------------------------------------------------------------------------//
+// ### LINKING ##############################################################
+//---------------------------------------------------------------------------//
+
+// Where to find embedded frameworks
+LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks
+LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*]  = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*]  = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+
+//---------------------------------------------------------------------------//
 // ### SEARCH PATHS #########################################################
 //---------------------------------------------------------------------------//
 
 // Disable legacy-compatible header searching
 ALWAYS_SEARCH_USER_PATHS = NO
+
+// Xcode needs this to find archived headers if SKIP_INSTALL is set
+HEADER_SEARCH_PATHS[sdk=iphoneos*] = $(OBJROOT)/UninstalledProducts/include
 
 //---------------------------------------------------------------------------//
 // ### CODE GENERATION ######################################################

@@ -12,17 +12,3 @@
 // assumed)
 SDKROOT = iphoneos
 
-//---------------------------------------------------------------------------//
-// ### LINKING ##############################################################
-//---------------------------------------------------------------------------//
-
-// Where to find embedded frameworks
-LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
-
-//---------------------------------------------------------------------------//
-// ### SEARCH PATHS #########################################################
-//---------------------------------------------------------------------------//
-
-// Xcode needs this to find archived headers if SKIP_INSTALL is set
-HEADER_SEARCH_PATHS = $(OBJROOT)/UninstalledProducts/include
-
