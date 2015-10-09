@@ -26,8 +26,10 @@ SKIP_INSTALL = YES
 // Overrides Release.xcconfig when used at the target level.
 COPY_PHASE_STRIP = NO
 
-// Supported device families (1 is iPhone, 2 is iPad)
+// Supported device families (1 is iPhone, 2 is iPad, 3 is Apple TV)
 TARGETED_DEVICE_FAMILY = 1,2
+TARGETED_DEVICE_FAMILY[sdk=appletvos*] = 3
+TARGETED_DEVICE_FAMILY[sdk=appletvsimulator*] = 3
 
 //---------------------------------------------------------------------------//
 // ### LINKING ##############################################################

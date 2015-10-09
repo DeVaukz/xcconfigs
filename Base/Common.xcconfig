@@ -22,6 +22,9 @@ VALID_ARCHS[sdk=macosx*] = x86_64
 // Which compiler to use
 GCC_VERSION = com.apple.compilers.llvm.clang.1_0
 
+// Whether to generate bitcode
+ENABLE_BITCODE = NO
+
 //---------------------------------------------------------------------------//
 // ### CODE SIGNING #########################################################
 //---------------------------------------------------------------------------//
@@ -42,6 +45,12 @@ COMBINE_HIDPI_IMAGES = YES
 //---------------------------------------------------------------------------//
 // ### LINKING ##############################################################
 //---------------------------------------------------------------------------//
+
+// The current version of the framework built.
+DYLIB_CURRENT_VERSION = $(CURRENT_PROJECT_VERSION)
+
+// Other linker flags.
+OTHER_LDFLAGS = -Xlinker -source_version -Xlinker $(DYLIB_CURRENT_VERSION)
 
 // Where to find embedded frameworks
 LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks
