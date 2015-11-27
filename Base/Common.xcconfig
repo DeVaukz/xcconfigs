@@ -23,7 +23,8 @@ VALID_ARCHS[sdk=macosx*] = x86_64
 GCC_VERSION = com.apple.compilers.llvm.clang.1_0
 
 // Whether to generate bitcode
-ENABLE_BITCODE = NO
+ENABLE_BITCODE = YES
+ENABLE_BITCODE[sdk=macosx*] = NO
 
 //---------------------------------------------------------------------------//
 // ### CODE SIGNING #########################################################
@@ -41,6 +42,12 @@ CODE_SIGN_IDENTITY[sdk=iphonesimulator*] = iPhone Developer
 // Whether to combine multiple image resolutions into a multirepresentational
 // TIFF
 COMBINE_HIDPI_IMAGES = YES
+
+// Supported device families (1 is iPhone, 2 is iPad, 3 is Apple TV)
+TARGETED_DEVICE_FAMILY[sdk=iphoneos*] = 1,2
+TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*] = 1,2
+TARGETED_DEVICE_FAMILY[sdk=appletvos*] = 3
+TARGETED_DEVICE_FAMILY[sdk=appletvsimulator*] = 3
 
 //---------------------------------------------------------------------------//
 // ### LINKING ##############################################################
