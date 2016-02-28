@@ -88,6 +88,8 @@ GCC_GENERATE_DEBUGGING_SYMBOLS = YES
 
 // Whether to allocate even uninitialized global variables in the data section
 // of the object file, rather than generating them as common blocks.
+// It warns if the same variable is declared in two binaries that are linked
+// together.
 GCC_NO_COMMON_BLOCKS = YES
 
 // Whether static variables are thread-safe by default
@@ -102,7 +104,7 @@ GCC_SYMBOLS_PRIVATE_EXTERN = NO
 //---------------------------------------------------------------------------//
 
 // Which C variant to use
-GCC_C_LANGUAGE_STANDARD = gnu99
+GCC_C_LANGUAGE_STANDARD = gnu11
 
 // Which C++ variant to use
 CLANG_CXX_LANGUAGE_STANDARD = gnu++0x
