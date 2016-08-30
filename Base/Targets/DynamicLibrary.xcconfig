@@ -14,6 +14,16 @@
 APPLICATION_EXTENSION_API_ONLY = YES
 
 //---------------------------------------------------------------------------//
+// ### CODE SIGNING #########################################################
+//---------------------------------------------------------------------------//
+
+// Disable code signing for successful device builds with Xcode 8. Frameworks do
+// need to be signed, but they don't need to be signed at compile time because
+// they'll be re-signed when you include them in your app.
+CODE_SIGNING_REQUIRED = NO
+CODE_SIGN_IDENTITY =
+
+//---------------------------------------------------------------------------//
 // ### DEPLOYMENT ###########################################################
 //---------------------------------------------------------------------------//
 
@@ -33,7 +43,7 @@ SKIP_INSTALL = YES
 DEAD_CODE_STRIPPING = NO
 
 // The Internal install path.
-LD_DYLIB_INSTALL_NAME = @rpath/$(EXECUTABLE_PREFIX)$(PRODUCT_NAME).$(EXECUTABLE_EXTENSION)
+LD_DYLIB_INSTALL_NAME = $(DYLIB_INSTALL_NAME_BASE)/$(EXECUTABLE_PREFIX)$(PRODUCT_NAME).$(EXECUTABLE_EXTENSION)
 
 //---------------------------------------------------------------------------//
 // ### CODE GENERATION ######################################################

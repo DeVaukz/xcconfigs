@@ -167,6 +167,11 @@ CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES
 // of an integer value.
 CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES
 
+// This warnings detects when a function will recursively call itself on every
+// code path though that function. More information can be found here:
+// http://lists.llvm.org/pipermail/cfe-commits/Week-of-Mon-20131216/096004.html
+CLANG_WARN_INFINITE_RECURSION = YES
+
 // Warn if a variable might be clobbered by a setjmp call or if an automatic variable is used without prior initialization.
 GCC_WARN_UNINITIALIZED_AUTOS = YES
 
@@ -175,7 +180,7 @@ GCC_WARN_64_TO_32_BIT_CONVERSION = YES
 
 // Whether to warn about fields missing from structure initializers (only if
 // designated initializers aren't used)
-GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES
+GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO
 
 // Whether to warn about missing function prototypes
 GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO
@@ -230,6 +235,13 @@ WARNING_CFLAGS = -Wno-error=unknown-warning-option -Wno-gcc-compat -Wno-unused-c
 GCC_WARN_UNUSED_PARAMETER = YES
 
 //---------------------------------------------------------------------------//
+// ### WARNINGS (C++) ######################################################
+//---------------------------------------------------------------------------//
+
+// This warning detects suspicious uses of std::move.
+CLANG_WARN_SUSPICIOUS_MOVE = YES
+
+//---------------------------------------------------------------------------//
 // ### WARNINGS (ObjC) ######################################################
 //---------------------------------------------------------------------------//
 
@@ -255,6 +267,9 @@ CLANG_WARN_OBJC_ROOT_CLASS = YES
 //---------------------------------------------------------------------------//
 // ### WARNINGS (ARC) #######################################################
 //---------------------------------------------------------------------------//
+
+// Warn about implicit capture of self (e.g. direct ivar access)
+CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES
 
 // Don't warn about repeatedly using a weak reference without assigning the weak
 // reference to a strong reference. Too many false positives.
