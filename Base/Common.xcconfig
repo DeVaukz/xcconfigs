@@ -229,7 +229,7 @@ GCC_WARN_UNUSED_LABEL = YES
 GCC_WARN_UNUSED_VARIABLE = YES
 
 // Don't treat unknown warnings as errors, and disable GCC compatibility warnings and unused static const variable warnings
-WARNING_CFLAGS = -Wno-error=unknown-warning-option -Wno-gcc-compat -Wno-unused-const-variable -Wno-nullability-completeness
+WARNING_CFLAGS = -Wno-error=unknown-warning-option -Wno-gcc-compat -Wno-unused-const-variable
 
 // Whether to warn about unused method/function parameters
 GCC_WARN_UNUSED_PARAMETER = YES
@@ -277,6 +277,13 @@ CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO
 
 //---------------------------------------------------------------------------//
 // ### ANALYZER #############################################################
+//---------------------------------------------------------------------------//
+
+// Warn when a non-localized string is passed to a user-interface method expecting a localized string
+CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES
+
+//---------------------------------------------------------------------------//
+// ### ANALYZER (SECURITY) ##################################################
 //---------------------------------------------------------------------------//
 
 // Whether to warn when a floating-point value is used as a loop counter
