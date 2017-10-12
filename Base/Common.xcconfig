@@ -138,9 +138,15 @@ ENABLE_STRICT_OBJC_MSGSEND = YES
 // ### WARNINGS (ALL) #######################################################
 //---------------------------------------------------------------------------//
 
+// Warn about block captures of implicitly autoreleasing parameters.
+CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES
+
 // Warn about implicit conversions to boolean values that are suspicious.
 // For example, writing 'if (foo)' with 'foo' being the name a function will trigger a warning.
 CLANG_WARN_BOOL_CONVERSION = YES
+
+// Warn about suspicious uses of the comma operator.
+CLANG_WARN_COMMA = YES
 
 // Warn about implicit conversions of constant values that cause the constant value to change,
 // either through a loss of precision, or entirely in its meaning.
@@ -154,26 +160,31 @@ CLANG_WARN_EMPTY_BODY = YES
 CLANG_WARN_ENUM_CONVERSION = YES
 
 // Whether to warn on implicit conversions between signed/unsigned types
-CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO
+CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES
 
 // Warn about implicit conversions between pointers and integers.
 // For example, this can catch issues when one incorrectly intermixes using NSNumbers and raw integers.
 CLANG_WARN_INT_CONVERSION = YES
 
+// Warn about non-literal expressions that evaluate to zero being treated as a null pointer.
+CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES
+
+// Warn about ranged-based for loops.
+CLANG_WARN_RANGE_LOOP_ANALYSIS = YES
+
 // Whether to warn on suspicious implicit conversions
 CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES
 
-// Whether to warn about implicit integer conversions that change the signedness
-// of an integer value.
-CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES
+// Warn about non-prototype declarations.
+CLANG_WARN_STRICT_PROTOTYPES = YES
+
+// Warn about potentially unreachable code
+CLANG_WARN_UNREACHABLE_CODE = YES
 
 // This warnings detects when a function will recursively call itself on every
 // code path though that function. More information can be found here:
 // http://lists.llvm.org/pipermail/cfe-commits/Week-of-Mon-20131216/096004.html
 CLANG_WARN_INFINITE_RECURSION = YES
-
-// Warn if a variable might be clobbered by a setjmp call or if an automatic variable is used without prior initialization.
-GCC_WARN_UNINITIALIZED_AUTOS = YES
 
 // Whether to warn about 64-bit values being implicitly shortened to 32 bits
 GCC_WARN_64_TO_32_BIT_CONVERSION = YES
@@ -216,8 +227,8 @@ GCC_WARN_SIGN_COMPARE = YES
 // the format specifiers
 GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES
 
-// Warn about potentially unreachable code
-CLANG_WARN_UNREACHABLE_CODE = YES
+// Warn if a variable might be clobbered by a setjmp call or if an automatic variable is used without prior initialization.
+GCC_WARN_UNINITIALIZED_AUTOS = YES
 
 // Whether to warn about static functions that are unused
 GCC_WARN_UNUSED_FUNCTION = YES
@@ -228,11 +239,11 @@ GCC_WARN_UNUSED_LABEL = YES
 // Whether to warn about variables that are never used
 GCC_WARN_UNUSED_VARIABLE = YES
 
-// Don't treat unknown warnings as errors, and disable GCC compatibility warnings and unused static const variable warnings
-WARNING_CFLAGS = -Wno-error=unknown-warning-option -Wno-gcc-compat -Wno-unused-const-variable
-
 // Whether to warn about unused method/function parameters
 GCC_WARN_UNUSED_PARAMETER = YES
+
+// Don't treat unknown warnings as errors, and disable GCC compatibility warnings and unused static const variable warnings
+WARNING_CFLAGS = -Wno-error=unknown-warning-option -Wno-gcc-compat -Wno-unused-const-variable
 
 //---------------------------------------------------------------------------//
 // ### WARNINGS (C++) ######################################################
@@ -250,6 +261,9 @@ CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES
 
 // Warn about declaring the same method more than once within the same @interface.
 CLANG_WARN__DUPLICATE_METHOD_MATCH = YES
+
+// Warn about implicit conversions from Objective-C literals to values of incompatible type.
+CLANG_WARN_OBJC_LITERAL_CONVERSION = YES
 
 // Whether to warn on a class not implementing all the required methods of
 // a protocol it declares conformance to
