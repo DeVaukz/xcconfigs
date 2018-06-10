@@ -63,6 +63,9 @@ GCC_PREPROCESSOR_DEFINITIONS = NDEBUG=1
 // ### SWIFT ################################################################
 //---------------------------------------------------------------------------//
 
-// The optimization level (-Onone, -O, -Owholemodule) for the produced Swift binary
-SWIFT_OPTIMIZATION_LEVEL = -Owholemodule
+// Compilation mode (independent of optimization level)
+SWIFT_COMPILATION_MODE = wholemodule
+
+// The optimization level (-Onone, -O, -Osize) for the produced Swift binary
+SWIFT_OPTIMIZATION_LEVEL = -O
 
