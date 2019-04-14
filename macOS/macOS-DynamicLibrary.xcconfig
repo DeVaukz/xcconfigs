@@ -1,0 +1,11 @@
+//
+// This file defines additional configuration options that are appropriate only
+// for a dynamic library on macOS. This should be set at the target level for
+// each project configuration.
+//
+
+// Import base Dynamic Library settings
+#include "../Base/Targets/DynamicLibrary.xcconfig"
+
+// Import common settings specific to macOS
+#include "macOS-Base.xcconfig"
