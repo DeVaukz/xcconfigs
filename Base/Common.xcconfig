@@ -196,6 +196,12 @@ GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO
 // Whether to warn about missing function prototypes
 GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO
 
+// Warn when a source file does not end with a newline.
+GCC_WARN_ABOUT_MISSING_NEWLINE = YES
+
+// Warn about assigning integer constants to enum values that are out of the range of the enumerated type.
+CLANG_WARN_ASSIGN_ENUM = YES
+
 // Whether to warn about implicit conversions in the signedness of the type
 // a pointer is pointing to (e.g., 'int *' getting converted to 'unsigned int *')
 GCC_WARN_ABOUT_POINTER_SIGNEDNESS = YES
@@ -252,6 +258,9 @@ WARNING_CFLAGS = -Wno-error=unknown-warning-option -Wno-gcc-compat -Wno-unused-c
 // This warning detects suspicious uses of std::move.
 CLANG_WARN_SUSPICIOUS_MOVE = YES
 
+// Warns when an atomic is used with an implicitly sequentially-consistent memory order, instead of explicitly specifying memory order.
+CLANG_WARN_ATOMIC_IMPLICIT_SEQ_CST = YES
+
 //---------------------------------------------------------------------------//
 // ### WARNINGS (ObjC) ######################################################
 //---------------------------------------------------------------------------//
@@ -269,6 +278,9 @@ CLANG_WARN_OBJC_LITERAL_CONVERSION = YES
 // a protocol it declares conformance to
 GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES
 
+// Warn about noescape annotations that are missing in a method's signature.
+CLANG_WARN_MISSING_NOESCAPE = YES
+
 // Whether to warn when overriding deprecated methods
 CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES
 
@@ -282,6 +294,9 @@ CLANG_WARN_OBJC_ROOT_CLASS = YES
 // ### WARNINGS (ARC) #######################################################
 //---------------------------------------------------------------------------//
 
+// Warn about implicit ownership types on Objective-C object references as out parameters. For example, declaring a parameter with type `NSObject**` will produce a warning because the compiler will assume that the out parameter's ownership type is `__autoreleasing`
+CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES
+
 // Warn about implicit capture of self (e.g. direct ivar access)
 CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES
 
@@ -290,11 +305,14 @@ CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES
 CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO
 
 //---------------------------------------------------------------------------//
-// ### ANALYZER #############################################################
+// ### ANALYZER (APPLE APIS) ################################################
 //---------------------------------------------------------------------------//
 
 // Warn when a non-localized string is passed to a user-interface method expecting a localized string
 CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES
+
+// Check for Grand Central Dispatch idioms that may lead to poor performance.
+CLANG_ANALYZER_GCD_PERFORMANCE = YES
 
 //---------------------------------------------------------------------------//
 // ### ANALYZER (SECURITY) ##################################################
