@@ -129,6 +129,9 @@ GCC_ENABLE_OBJC_EXCEPTIONS = YES
 // Enable ARC
 CLANG_ENABLE_OBJC_ARC = YES
 
+// Enable weak references for code compiled with manual retain release (MRR)
+CLANG_ENABLE_OBJC_WEAK = YES
+
 //---------------------------------------------------------------------------//
 // ### PREPROCESSING ########################################################
 //---------------------------------------------------------------------------//
@@ -247,6 +250,9 @@ GCC_WARN_UNUSED_FUNCTION = YES
 // Whether to warn about labels that are unused
 GCC_WARN_UNUSED_LABEL = YES
 
+// Whether to warn about a statement that computes a result that is never used
+GCC_WARN_UNUSED_VALUE = YES
+
 // Whether to warn about variables that are never used
 GCC_WARN_UNUSED_VARIABLE = YES
 
@@ -259,6 +265,10 @@ WARNING_CFLAGS = -Wno-error=unknown-warning-option -Wno-gcc-compat -Wno-unused-c
 //---------------------------------------------------------------------------//
 // ### WARNINGS (C++) ######################################################
 //---------------------------------------------------------------------------//
+
+// Warn about destructors for C++ objects that are called when an application
+// is terminating.
+CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES
 
 // Warn about ranged-based for loops.
 CLANG_WARN_RANGE_LOOP_ANALYSIS = YES
@@ -316,8 +326,15 @@ CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO
 // ### ANALYZER (APPLE APIS) ################################################
 //---------------------------------------------------------------------------//
 
+// Warn if functions accepting `CFErrorRef` or `NSError` cannot indicate that
+// an error occurred.
+CLANG_ANALYZER_OBJC_NSCFERROR = YES;
+
 // Warn when a non-localized string is passed to a user-interface method expecting a localized string
 CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES
+
+// Check for misuses of the Grand Central Dispatch API.
+CLANG_ANALYZER_GCD = YES
 
 // Check for Grand Central Dispatch idioms that may lead to poor performance.
 CLANG_ANALYZER_GCD_PERFORMANCE = YES
@@ -326,11 +343,38 @@ CLANG_ANALYZER_GCD_PERFORMANCE = YES
 CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE
 
 //---------------------------------------------------------------------------//
+// ### ANALYZER (Objective-C) ###############################################
+//---------------------------------------------------------------------------//
+
+// Warn on `nil` pointers used as mutexes for `@synchronized`.
+CLANG_ANALYZER_OBJC_ATSYNC = YES
+
+// Warn when an instance is improperly cleaned up in `-dealloc`.
+CLANG_ANALYZER_OBJC_DEALLOC = YES
+
+// Warn about Objective-C method signatures with type incompatibilities.
+CLANG_ANALYZER_OBJC_INCOMP_METHOD_TYPES = YES
+
+// Warn if a specialized generic type is converted to an incompatible type.
+CLANG_ANALYZER_OBJC_GENERICS = YES
+
+// Check that `super init` is properly called within an Objective-C
+// initialization method.
+CLANG_ANALYZER_OBJC_SELF_INIT = YES
+
+// Warn on leaks and improper reference count management.
+CLANG_ANALYZER_OBJC_RETAIN_COUNT = YES
+
+//---------------------------------------------------------------------------//
 // ### ANALYZER (SECURITY) ##################################################
 //---------------------------------------------------------------------------//
 
 // Whether to warn when a floating-point value is used as a loop counter
 CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES
+
+// Whether to warn on uses of sensitive functions whose return values must be
+// always checked.
+CLANG_ANALYZER_SECURITY_INSECUREAPI_UNCHECKEDRETURN = YES
 
 // Whether to warn about use of rand() and random() being used instead of arc4random()
 CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES
