@@ -10,17 +10,10 @@
 
 // Architectures to build
 ARCHS = $(ARCHS_STANDARD)
-ARCHS[sdk=iphoneos*] = arm64
-
-// Supported build architectures
-VALID_ARCHS[sdk=macosx*] = x86_64
 
 //---------------------------------------------------------------------------//
 // ### BUILD OPTIONS ########################################################
 //---------------------------------------------------------------------------//
-
-// Which compiler to use
-GCC_VERSION = com.apple.compilers.llvm.clang.1_0
 
 // Whether to generate bitcode
 ENABLE_BITCODE = YES
@@ -53,11 +46,11 @@ TARGETED_DEVICE_FAMILY[sdk=appletvsimulator*] = 3
 // ### LINKING ##############################################################
 //---------------------------------------------------------------------------//
 
-// The current version of the framework built.
-DYLIB_CURRENT_VERSION = $(CURRENT_PROJECT_VERSION)
+// The current source code version
+SOURCE_CODE_VERSION = $(CURRENT_PROJECT_VERSION)
 
 // Other linker flags.
-OTHER_LDFLAGS = -Xlinker -source_version -Xlinker $(DYLIB_CURRENT_VERSION)
+OTHER_LDFLAGS = -Xlinker -source_version -Xlinker $(SOURCE_CODE_VERSION)
 
 // Where to find embedded frameworks
 LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks
@@ -106,17 +99,29 @@ GCC_SYMBOLS_PRIVATE_EXTERN = NO
 // Which C variant to use
 GCC_C_LANGUAGE_STANDARD = gnu11
 
+// Whether to precompile the prefix header (if one is specified)
+GCC_PRECOMPILE_PREFIX_HEADER = YES
+
+//---------------------------------------------------------------------------//
+// ### LANGUAGE (C++) #######################################################
+//---------------------------------------------------------------------------//
+
 // Which C++ variant to use
 CLANG_CXX_LANGUAGE_STANDARD = gnu++0x
 
 // Which C++ Standard Library to use
 CLANG_CXX_LIBRARY = libc++
 
-// Whether to precompile the prefix header (if one is specified)
-GCC_PRECOMPILE_PREFIX_HEADER = YES
+//---------------------------------------------------------------------------//
+// ### LANGUAGE (Modules) ###################################################
+//---------------------------------------------------------------------------//
 
 // Whether to enable module imports
 CLANG_ENABLE_MODULES = YES
+
+//---------------------------------------------------------------------------//
+// ### LANGUAGE (Objective-C) ###############################################
+//---------------------------------------------------------------------------//
 
 // Whether to enable exceptions for Objective-C
 GCC_ENABLE_OBJC_EXCEPTIONS = YES
@@ -168,9 +173,6 @@ CLANG_WARN_INT_CONVERSION = YES
 
 // Warn about non-literal expressions that evaluate to zero being treated as a null pointer.
 CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES
-
-// Warn about ranged-based for loops.
-CLANG_WARN_RANGE_LOOP_ANALYSIS = YES
 
 // Whether to warn on suspicious implicit conversions
 CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES
@@ -257,6 +259,9 @@ WARNING_CFLAGS = -Wno-error=unknown-warning-option -Wno-gcc-compat -Wno-unused-c
 //---------------------------------------------------------------------------//
 // ### WARNINGS (C++) ######################################################
 //---------------------------------------------------------------------------//
+
+// Warn about ranged-based for loops.
+CLANG_WARN_RANGE_LOOP_ANALYSIS = YES
 
 // This warning detects suspicious uses of std::move.
 CLANG_WARN_SUSPICIOUS_MOVE = YES

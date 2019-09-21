@@ -8,23 +8,6 @@
 #include "DynamicLibrary.xcconfig"
 
 //---------------------------------------------------------------------------//
-// ### CODE SIGNING #########################################################
-//---------------------------------------------------------------------------//
-
-// Disable code signing for successful device builds with Xcode 8. Frameworks do
-// need to be signed, but they don't need to be signed at compile time because
-// they'll be re-signed when you include them in your app.
-CODE_SIGNING_REQUIRED = NO
-CODE_SIGN_IDENTITY =
-
-//---------------------------------------------------------------------------//
-// ### LINKING ##############################################################
-//---------------------------------------------------------------------------//
-
-// The Internal install path.
-LD_DYLIB_INSTALL_NAME = @rpath/$(PRODUCT_NAME).$(WRAPPER_EXTENSION)/$(PRODUCT_NAME)
-
-//---------------------------------------------------------------------------//
 // ### PACKAGING ############################################################
 //---------------------------------------------------------------------------//
 
@@ -33,4 +16,4 @@ DEFINES_MODULE = YES
 
 // Default frameworks to the name of the project, instead of any
 // platform-specific target
-PRODUCT_NAME = $(PROJECT_NAME)
+PRODUCT_NAME = $(TARGET_NAME:c99extidentifier)
