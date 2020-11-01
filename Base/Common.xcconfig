@@ -90,7 +90,7 @@ GCC_THREADSAFE_STATICS = NO
 
 // Whether symbols not explicitly exported are hidden by default (this primarily
 // only affects C++ code)
-GCC_SYMBOLS_PRIVATE_EXTERN = NO
+GCC_SYMBOLS_PRIVATE_EXTERN = YES
 
 //---------------------------------------------------------------------------//
 // ### LANGUAGE #############################################################
@@ -107,10 +107,17 @@ GCC_PRECOMPILE_PREFIX_HEADER = YES
 //---------------------------------------------------------------------------//
 
 // Which C++ variant to use
-CLANG_CXX_LANGUAGE_STANDARD = gnu++0x
+CLANG_CXX_LANGUAGE_STANDARD = gnu++17
 
 // Which C++ Standard Library to use
 CLANG_CXX_LIBRARY = libc++
+
+// Whether to enable C++ exception handling.
+GCC_ENABLE_CPP_EXCEPTIONS = YES;
+
+// Whether to enable generation of information about every class with virtual
+// functions for use by the C++ runtime type identification features.
+GCC_ENABLE_CPP_RTTI = YES;
 
 //---------------------------------------------------------------------------//
 // ### LANGUAGE (Modules) ###################################################
@@ -118,6 +125,10 @@ CLANG_CXX_LIBRARY = libc++
 
 // Whether to enable module imports
 CLANG_ENABLE_MODULES = YES
+
+// Whether to automatically link SDK frameworks that are referenced using
+// `#import` or `#include`.
+CLANG_MODULES_AUTOLINK = NO
 
 //---------------------------------------------------------------------------//
 // ### LANGUAGE (Objective-C) ###############################################
@@ -288,6 +299,9 @@ CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES
 
 // Warn about declaring the same method more than once within the same @interface.
 CLANG_WARN__DUPLICATE_METHOD_MATCH = YES
+
+// Warn about `@property` declarations that are implicitly atomic.
+CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES
 
 // Warn about implicit conversions from Objective-C literals to values of incompatible type.
 CLANG_WARN_OBJC_LITERAL_CONVERSION = YES
